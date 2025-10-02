@@ -1,0 +1,655 @@
+/* --- Reset Básico e Fontes --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-purple: #6A0DAD; /* Roxo Principal */
+    --secondary-yellow: #FFD700; /* Amarelo Vibrante */
+    --accent-blue: #007BFF; /* Azul Caloroso */
+    --dark-text: #333;
+    --light-text: #f4f4f4;
+    --bg-light: #FFFFFF;
+    --bg-grey: #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+/* --- Cabeçalho e Navegação --- */
+.main-header {
+    background: var(--bg-light);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-purple);
+    text-decoration: none;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--primary-purple);
+}
+
+.main-nav ul li a.btn-doe {
+    background: var(--secondary-yellow);
+    color: var(--dark-text);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.main-nav ul li a.btn-doe:hover {
+    background: #e6c300;
+}
+
+/* --- Seções Padrão --- */
+.section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-purple);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* --- CÓDIGO NOVO (Use este no lugar) --- */
+.hero {
+    background: linear-gradient(to right, rgba(106, 13, 173, 0.7), rgba(0, 123, 255, 0.6)), url('../img/backgroud.png') no-repeat center center/cover;
+    height: 90vh;
+    color: var(--light-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--secondary-yellow);
+    color: var(--dark-text);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #e6c300;
+}
+
+.btn-secondary {
+    background: var(--accent-blue);
+    color: var(--light-text);
+}
+
+.btn-secondary:hover {
+    background: #0056b3;
+}
+
+/* --- Cards --- */
+.card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card i {
+    font-size: 3rem;
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.pillar-item i {
+    font-size: 3rem;
+    color: #6A0DAD;
+    margin-bottom: 1rem;
+}
+
+.theme-africa .pillar-item i {
+    color: #B71C1C;
+}
+
+/* --- Rodapé --- */
+.main-footer {
+    background: var(--primary-purple);
+    color: var(--light-text);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.main-footer .container p {
+    margin: 0;
+}
+
+/* --- Páginas Internas --- */
+.page-header {
+    background: var(--primary-purple);
+    color: var(--light-text);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+}
+
+.content-section {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.content-section img {
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+/* --- Formulário de Contato --- */
+.contact-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* --- Tema para a Página Núcleo África --- */
+.theme-africa .page-header {
+    background-color: #B71C1C; /* Vermelho da logo */
+    color: #FFFFFF; /* Texto branco para contraste */
+}
+
+.theme-africa .page-header h1 {
+    color: #FFB300; /* Amarelo/Dourado da logo */
+}
+
+.theme-africa .content-section h2 {
+    color: #B71C1C; /* Título da seção em vermelho */
+}
+
+.theme-africa .btn {
+    background: #FFB300; /* Botões em Amarelo/Dourado */
+    color: #333;
+}
+
+.theme-africa .btn:hover {
+    background: #e6a200; /* Amarelo um pouco mais escuro ao passar o mouse */
+}
+
+.theme-africa .main-footer {
+    background: #B71C1C; /* Rodapé vermelho para combinar com o cabeçalho */
+}
+
+/* Estilo para a logo específica da página */
+.africa-logo {
+    max-width: 150px;
+    margin: 0 auto 2rem auto;
+    display: block;
+}/* --- Seção de Pilares para o Tema África --- */
+.pillars-section {
+    padding: 3rem 0;
+    background-color: #f8f8f8; /* Um cinza bem claro para destacar */
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.pillar-item {
+    padding: 1.5rem;
+}
+
+.pillar-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.pillar-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/*
+==============================================
+--- ESTILOS PARA DISPOSITIVOS MÓVEIS ---
+==============================================
+*/
+
+@media (max-width: 768px) {
+
+    /* --- Ajustes Gerais --- */
+    .container {
+        padding: 0 1rem; /* Menos espaçamento lateral */
+    }
+
+    .section {
+        padding: 2.5rem 0; /* Menos espaçamento vertical */
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* --- Navegação Mobile --- */
+    .main-nav {
+        position: relative;
+    }
+
+    .mobile-menu-button {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--primary-purple);
+        cursor: pointer;
+        z-index: 1001; /* Fica acima do menu */
+    }
+    
+    .main-nav ul {
+        display: none; /* Esconde o menu por padrão */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Posição abaixo do header */
+        right: 0;
+        width: 100%;
+        background: var(--bg-light);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+    }
+
+    .main-nav ul.nav-active {
+        display: flex; /* Mostra o menu quando o JS adicionar a classe */
+    }
+
+    .main-nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .main-nav ul li a.btn-doe {
+        border-radius: 0;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+        height: 70vh;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    /* --- Grids (1 coluna) --- */
+    .grid-3,
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- Seção de Conteúdo (imagem e texto) --- */
+    .content-section {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        text-align: center;
+    }
+
+    .content-section img {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    /* --- Formulário de Contato --- */
+    .contact-form {
+        margin-top: 2rem;
+    }
+}
+
+/* Oculta o botão hambúrguer em telas grandes */
+.mobile-menu-button {
+    display: none;
+}
+
+/*
+==============================================
+--- ESTILOS PARA A PÁGINA DE DOAÇÃO ---
+==============================================
+*/
+
+.impact-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.impact-card i {
+    font-size: 3rem;
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+}
+
+.impact-card .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin: 0.5rem 0 1rem 0;
+}
+
+.donate-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.donate-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.donate-card.recurring {
+    background-color: var(--primary-purple);
+    color: var(--light-text);
+}
+.donate-card.recurring h3 {
+    color: var(--secondary-yellow);
+}
+
+.pix-key {
+    background: #eee;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+}
+
+/*
+======================================================
+--- ESTILOS PARA OS CARDS DE CAMPANHA DE ALTO IMPACTO ---
+======================================================
+*/
+
+.campaign-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 3rem auto 0 auto;
+}
+
+.campaign-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden; /* Garante que a imagem não vaze das bordas arredondadas */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.campaign-card:hover {
+    transform: translateY(-8px);
+}
+
+.campaign-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+}
+
+.card-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Empurra o botão para o final */
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* Cores das barras de progresso */
+.progress.purple { background-color: var(--primary-purple); }
+.progress.red { background-color: #B71C1C; }
+
+.card-metrics {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.campaign-card .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/*
+==============================================
+--- ESTILOS PARA A PÁGINA DE CONTATO ---
+==============================================
+*/
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Coluna da esquerda menor, direita maior */
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-purple);
+    margin-right: 1rem;
+    width: 25px; /* Alinha os ícones */
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: var(--dark-text);
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--accent-blue);
+}
+
+.map-container {
+    margin-bottom: 2rem;
+    height: 350px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* --- Responsividade para a página de contato --- */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Empilha as colunas em telas menores */
+    }
+}
+
+/* --- Ajuste responsivo para os novos cards --- */
+@media (max-width: 768px) {
+    .campaign-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Ajuste responsivo para o Grid de Campanhas --- */
+@media (max-width: 768px) {
+    .campaign-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Responsividade para a página de doação --- */
+@media (max-width: 768px) {
+    .donate-options {
+        grid-template-columns: 1fr;
+    }
+}
