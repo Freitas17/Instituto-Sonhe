@@ -183,20 +183,47 @@ body.dark-mode {
 
 /* --- 8. RESPONSIVIDADE (MEDIA QUERIES) --- */
 @media (max-width: 768px) {
-    .container { padding: 0 1rem; }
+    .container { padding: 0 1rem; overflow: visible; } /* <-- aqui */
+
     .section { padding: 2.5rem 0; }
     .section-title { font-size: 2rem; }
+
     .main-nav { position: relative; display: flex; align-items: center; }
     #main-menu { margin-left: auto; }
-    .main-nav ul { display: none; flex-direction: column; position: absolute; top: 60px; right: -16px; width: 100%; background: var(--bg-light); box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 1px solid #eee; }
+
+    /* MENU MOBILE AJUSTADO */
+    .main-nav ul { 
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 60px; 
+        left: 0;      /* <- garante que comece no canto esquerdo */
+        right: 0;     /* <- e termine no canto direito */
+        width: 100%; 
+        background: var(--bg-light); 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        border-top: 1px solid #eee; 
+        z-index: 1000; 
+    }
     .main-nav ul.nav-active { display: flex; }
     .main-nav ul li { margin: 0; width: 100%; text-align: center; }
     .main-nav ul li a { padding: 1rem; display: block; width: 100%; border-bottom: 1px solid #eee; }
     .main-nav ul li a.btn-doe { border-radius: 0; }
-    .mobile-menu-button { display: block; background: none; border: none; font-size: 1.8rem; color: var(--primary-purple); cursor: pointer; z-index: 1001; }
+
+    .mobile-menu-button { 
+        display: block; 
+        background: none; 
+        border: none; 
+        font-size: 1.8rem; 
+        color: var(--primary-purple); 
+        cursor: pointer; 
+        z-index: 1100; /* botão acima do menu */
+    }
+
     .hero { height: 70vh; }
     .hero-content h1 { font-size: 2.5rem; }
     .hero-content p { font-size: 1.1rem; }
+
     .grid-3, .pillars-grid, .donate-options, .campaign-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
     .content-section { flex-direction: column; text-align: center; }
     .content-section img { max-width: 100%; margin-bottom: 2rem; }
@@ -204,3 +231,4 @@ body.dark-mode {
     .footer-grid { text-align: center; }
     .footer-logo { margin: 0 auto 1rem auto; }
 }
+
