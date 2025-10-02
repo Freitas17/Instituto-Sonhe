@@ -1,78 +1,81 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Ativar link de navegação da página atual
-    const currentPage = window.location.pathname.split("/").pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.main-nav ul li a');
-
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        }
-    });
-
-    // Efeito suave de rolagem (se necessário para âncoras)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Ativar link de navegação da página atual
-    const currentPage = window.location.pathname.split("/").pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.main-nav ul li a');
-
-    navLinks.forEach(link => {
-        // Lógica para ativar o link pai "O que Fazemos" nas páginas dos núcleos
-        const linkHref = link.getAttribute('href');
-        if (linkHref === currentPage) {
-            link.classList.add('active');
-        } else if (linkHref === 'o-que-fazemos.html' && 
-                   (currentPage === 'nucleo-sertao.html' || 
-                    currentPage === 'nucleo-prudente.html' || 
-                    currentPage === 'nucleo-africa.html')) {
-            link.classList.add('active');
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     
+    // ===========================================
+    // --- LÓGICA DO MODO ESCURO (DARK MODE) ---
+    // ===========================================
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (themeToggle) {
+        const themeIcon = themeToggle.querySelector('i');
+
+        const applyTheme = (theme) => {
+            if (theme === 'dark') {
+                body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                body.classList.remove('dark-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        };
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            let newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+
+    // ===========================================
     // --- LÓGICA DO MENU HAMBÚRGUER ---
+    // ===========================================
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const mainMenu = document.getElementById('main-menu');
 
     if (menuToggle && mainMenu) {
+        // Evento para ABRIR/FECHAR o menu com o botão
         menuToggle.addEventListener('click', function() {
             mainMenu.classList.toggle('nav-active');
         });
+
+        // Evento para FECHAR o menu ao clicar em um link
+        const menuLinks = mainMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainMenu.classList.remove('nav-active');
+            });
+        });
     }
 
+    // ===========================================
     // --- LÓGICA DO LINK ATIVO NA NAVEGAÇÃO ---
+    // ===========================================
     const currentPage = window.location.pathname.split("/").pop() || 'index.html';
     const navLinks = document.querySelectorAll('#main-menu a');
 
     navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        
-        // Remove a classe de todos primeiro para evitar múltiplos ativos
-        link.classList.remove('active');
+        // Lógica para determinar o link ativo (ajustada para ser mais robusta)
+        const linkHref = link.getAttribute('href').split("/").pop();
+        let isActive = (linkHref === currentPage);
 
-        // Adiciona a classe ao link da página atual
-        if (linkHref === currentPage) {
+        const isNucleoPage = currentPage.includes('nucleo-') || currentPage.includes('nucelo-');
+        const isOQueFazemosLink = link.getAttribute('href').includes('o-que-fazemos') || link.getAttribute('href').includes('oque-fazemos');
+
+        if (isNucleoPage && isOQueFazemosLink) {
+            isActive = true;
+        }
+
+        if (isActive) {
             link.classList.add('active');
-        } 
-        // Condição especial para as páginas de "núcleos"
-        else if (linkHref === 'o-que-fazemos.html' && 
-                   (currentPage === 'nucleo-sertao.html' || 
-                    currentPage === 'nucleo-prudente.html' || 
-                    currentPage === 'nucleo-africa.html')) {
-            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
-
 });
-
